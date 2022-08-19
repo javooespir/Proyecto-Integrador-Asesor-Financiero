@@ -55,7 +55,7 @@ def cryptomonedas():
     crypto = list(csv.DictReader(csvfile))
 
     for crypto_1 in crypto:
-        print(crypto_1['cyrptomonedas'])
+        print(crypto_1['cryptomonedas'])
     csvfile.close()
 
 

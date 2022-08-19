@@ -19,6 +19,8 @@ def bienvenida():
     print("\n"
     "Bienvenido a Javito's, tu nuevo Asesor Financiero"
     "\nPor favor, ingrese a continuación la opcion que corresponda: ")
+    return perfil()
+
     
 
 def perfil():
@@ -44,7 +46,7 @@ def perfil():
                opciones_inversion()  # Opciones para invertir
         except ValueError:
             print("Por favor, vuelva a intentar e ingrese alguna de las opciones")
-            return perfil()
+            return opcion_1
     
 
 
@@ -122,7 +124,7 @@ def conocer_perfil():
     total_a = Respuestas.count('a')
     total_b = Respuestas.count('b')
     total_c = Respuestas.count('c')
-    if total_c <= total_a or total_a >= total_b:     # de esta manera siempre priorizo que la respuesta sea CONSERVADOR para no arriesgar los fondos del usuario
+    if total_c <= total_a and total_a >= total_b:     # de esta manera siempre priorizo que la respuesta sea CONSERVADOR para no arriesgar los fondos del usuario
         print("Su perfil es: CONSERVADOR. Claramente, tu perfil de inversor es conservador si valoras la seguridad por encima de la rentabilidad. Eres más afín a productos de ahorro que garanticen tu dinero como las cuentas de ahorro y los depósitos bancarios o productos de inversión que inviertan en renta fija. Infórmate siempre antes de elegir un producto de inversión.")
         print("Felicidades, su perfil esta definido como CONSERVADOR. Estas son sus recomendaciones de inversión: ")
         auxiliares.divisas()
@@ -137,7 +139,6 @@ def conocer_perfil():
         print("Felicidades, su perfil esta definido como AGRESIVO. Estas son sus recomendaciones de inversión: ")
         auxiliares.acciones()
         auxiliares.cryptomonedas()
-    
     finalizacion()
 
 
@@ -161,6 +162,7 @@ def seleccion_inversiones(numero):
         print("Vuelva a intentar",
         "\n")
         bienvenida()
+    finalizacion()
 
 
 def opciones_inversion():
@@ -190,6 +192,7 @@ def finalizacion():
         try:
             if finalizar == 1:
                 print('Adios!')
+                quit()
                 break
             elif finalizar == 2:
                 bienvenida()
