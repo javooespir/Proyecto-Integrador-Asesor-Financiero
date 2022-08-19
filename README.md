@@ -11,3 +11,4 @@ La definición de tipo de  inversor se realiza por una encuesta sencilla que def
 Según el tipo, se generan recomendaciones de activos para invertir, los cuales se acomodan al perfil.
 
 En caso de ya contar con una experiencia previa, automaticamente se consulta que tipo de activo prefiere, y alli las mejores 3 opciones o mas conocidas de ese rubro.
+![Proyecto (1)](https://user-images.githubusercontent.com/105745198/185520900-23b7b602-c87b-4865-bb21-26b9e81b3616.png)
