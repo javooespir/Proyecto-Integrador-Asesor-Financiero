@@ -12,3 +12,5 @@ Según el tipo, se generan recomendaciones de activos para invertir, los cuales 
 
 En caso de ya contar con una experiencia previa, automaticamente se consulta que tipo de activo prefiere, y alli las mejores 3 opciones o mas conocidas de ese rubro.
 ![Proyecto (1)](https://user-images.githubusercontent.com/105745198/185520900-23b7b602-c87b-4865-bb21-26b9e81b3616.png)
+
+Ultima Actualizacion v1.0.0 18/08/2022
