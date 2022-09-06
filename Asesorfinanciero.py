@@ -30,23 +30,31 @@ def perfil():
           "\n2: Poca",
           "\n3: Algun Conocimiento"
           "\n4: Mucha",)
-    opcion_1 = int(input())
     while True:
         try:
-            if opcion_1 == 1:
-                conocer_perfil() #Funcion de preguntas de perfil
-
-            elif opcion_1 == 2:
-                conocer_perfil()  # Funcion de preguntas de perfil
-
-            elif opcion_1 == 3:
-                conocer_perfil()  # Funcion de preguntas de perfil
-            
-            elif opcion_1 == 4:
-               opciones_inversion()  # Opciones para invertir
-        except ValueError:
+            opcion_1 = int(input('Eliga una opcion:' (1,2,3,4)))
+            break
+        except:
             print("Por favor, vuelva a intentar e ingrese alguna de las opciones")
-            return opcion_1
+            return bienvenida          
+    if type (opcion_1) == int:
+        if opcion_1 == 1:
+                conocer_perfil()  # Funcion de preguntas de perfil
+
+        elif opcion_1 == 2:
+                conocer_perfil()  # Funcion de preguntas de perfil
+
+        elif opcion_1 == 3:
+                conocer_perfil()  # Funcion de preguntas de perfil
+
+        elif opcion_1 == 4:
+               opciones_inversion()  # Opciones para invertir
+        else:
+            print("Por favor, vuelva a intentar e ingrese alguna de las opciones")
+            return bienvenida
+    else:
+        print("Por favor, vuelva a intentar e ingrese alguna de las opciones")
+        return bienvenida
     
 
 
@@ -57,25 +65,56 @@ def conocer_perfil():
           "\nb) Entre cinco y diez años",
           "\nc) Más de 10 años")
     Respuestas = []
-    pregunta_1 = str(input())
+    while True:
+        try:
+            pregunta_1 = str(input('a', 'b','c'))
+            break
+        except: 
+            print("No ha ingresado un ninguna de las opciones de la pregunta 1, vuelva a intentar")
+            return conocer_perfil()
+
+            
 
     print("\n2) ¿Qué porcentaje de tus ahorros invertirías?",
           "\na) Menos del 30%",
           "\nb) Entre un 30 y un 60%",
           "\nc) Más del 60%")
-    pregunta_2 = str(input())
+    
+    while True:
+        try:
+            pregunta_2 = str(input('a', 'b', 'c'))
+            break
+        except:
+            print(
+                "No ha ingresado un ninguna de las opciones de la pregunta 1, vuelva a intentar")
+            return conocer_perfil()
 
     print("\n3) ¿Con qué te sientes más identificado?",
           "\na) Prefiero obtener una rentabilidad reducida pero que mi dinero esté garantizado",
           "\nb) Estoy dispuesto a asumir algo de riesgo a cambio de una mejor rentabilidad",
           "\nc) Busco la máxima rentabilidad. Quien no arriesga no gana")
-    pregunta_3 = str(input())
+    while True:
+        try:
+            pregunta_3 = str(input('a', 'b', 'c'))
+            break
+        except:
+            print(
+                "No ha ingresado un ninguna de las opciones de la pregunta 1, vuelva a intentar")
+            return conocer_perfil()
+
 
     print("\n4) ¿Qué te suscita la palabra «riesgo»?",
           "\na) Pérdida",
           "\nb) Inseguridad",
           "\nc) Oportunidad")
-    pregunta_4 = str(input())
+    while True:
+        try:
+            pregunta_4 = str(input('a', 'b', 'c'))
+            break
+        except:
+            print(
+                "No ha ingresado un ninguna de las opciones de la pregunta 1, vuelva a intentar")
+            return conocer_perfil()
 
     if pregunta_1 == 'a':
         Respuestas.append(pregunta_1)
@@ -200,6 +239,8 @@ def finalizacion():
             print("Por favor, ingrese las opciones 1 o 2")
             return finalizacion()
 
-bienvenida()
-perfil()
-finalizacion()
+
+if __name__ == "__main__":
+    bienvenida()
+    perfil()
+    finalizacion()
