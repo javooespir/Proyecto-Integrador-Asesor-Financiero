@@ -15,12 +15,10 @@ import auxiliares
 
 def bienvenida(): 
     # La funcion se encarga de mostrar en pantalla como interactuar con el programa
-    print("\n"
+    return print("\n"
     "Bienvenido a Javito's, tu nuevo Asesor Financiero"
     "\nPor favor, ingrese a continuación la opcion que corresponda: ")
-    return perfil()
 
-    
 
 def perfil():
     #segun el conocimiento del usuario, se dervia a las partes del programa
@@ -29,28 +27,9 @@ def perfil():
           "\n2: Poca",
           "\n3: Algun Conocimiento"
           "\n4: Mucha",)
-    while True:
-        try:
-            opcion_1 = int(input('Eliga una opcion:'))
-            if opcion_1 in [1, 2, 3, 4]:
-                if opcion_1 == 1:
-                    conocer_perfil()  # Funcion de preguntas de perfil
-
-                elif opcion_1 == 2:
-                    conocer_perfil()  # Funcion de preguntas de perfil
-
-                elif opcion_1 == 3:
-                    conocer_perfil()  # Funcion de preguntas de perfil
-
-                elif opcion_1 == 4:
-                    opciones_inversion()  # Opciones para invertir
-            else:
-                print("Por favor, vuelva a intentar e ingrese alguna de las opciones")
-                return perfil()  
-        except:
-            print("Por favor, vuelva a intentar e ingrese alguna de las opciones")
-            return perfil()         
+          
     
+
 
 
 def conocer_perfil():
@@ -164,19 +143,19 @@ def conocer_perfil():
     if total_c <= total_a and total_a >= total_b:     # de esta manera siempre priorizo que la respuesta sea CONSERVADOR para no arriesgar los fondos del usuario
         print("Su perfil es: CONSERVADOR. Claramente, tu perfil de inversor es conservador si valoras la seguridad por encima de la rentabilidad. Eres más afín a productos de ahorro que garanticen tu dinero como las cuentas de ahorro y los depósitos bancarios o productos de inversión que inviertan en renta fija. Infórmate siempre antes de elegir un producto de inversión.")
         print("Felicidades, su perfil esta definido como CONSERVADOR. Estas son sus recomendaciones de inversión: ")
-        print(auxiliares.divisas())
-        print(auxiliares.bonos())
+        auxiliares.divisas()
+        auxiliares.bonos()
     elif total_c <= total_b > total_a:  # de esta manera siempre priorizo que la respuesta sea MODERADO para no arriesgar los fondos del usuario
         print("Su perfil es: MODERADO. Buscas un crecimiento de tus ahorros y estás dispuesto a asumir algo de riesgo. Contemplas la posibilidad de invertir en productos como los planes de pensiones o fondos de inversión con un porcentaje equilibrado o acorde a tu aversión al riesgo en activos de renta fija y variable. Antes de invertir, fíjate en quién gestiona el producto, las comisiones y en qué estás invirtiendo.")
         print("Felicidades, su perfil esta definido como MODERADO. Estas son sus recomendaciones de inversión: ")
-        print(auxiliares.etf())
-        print(auxiliares.materia_prima())
+        auxiliares.etf()
+        auxiliares.materia_prima()
     elif total_a < total_c > total_b:
         print("Su perfil es: AGRESIVO. Quieres aumentar tu patrimonio al máximo y estás dispuesto a invertir a largo plazo asumiendo el riesgo necesario para ello. Entiendes el riesgo que conlleva invertir, el mercado y el funcionamiento de las herramientas de inversión. Este tipo de perfil suele invertir con un mayor porcentaje de la inversión en activos de renta variable.")
         print("Felicidades, su perfil esta definido como AGRESIVO. Estas son sus recomendaciones de inversión: ")
-        print(auxiliares.acciones())
-        print(auxiliares.cryptomonedas())
-    finalizacion()
+        auxiliares.acciones()
+        auxiliares.cryptomonedas()
+
 
 
 
@@ -199,7 +178,7 @@ def seleccion_inversiones(numero):
         print("Vuelva a intentar",
         "\n")
         bienvenida()
-    finalizacion()
+  
 
 
 def opciones_inversion():
@@ -214,8 +193,8 @@ def opciones_inversion():
      try:
          numero = int(input("Ingrese la opcion que desee: "))
          if numero in [1,2,3,4,5,6]:
-            seleccion_inversiones(numero)
-            break
+            return numero
+            
      except ValueError:
          print("No ha ingresado un numero de las opciones, vuelva a intentar")
 
@@ -225,25 +204,49 @@ def finalizacion():
           "\n¿Desea salir o volver al inicio?",
           "\n1: Salir.",
           "\n2: Inicio.")
-    while True:
-        try:
-            finalizar = int(input())
-            if finalizar in [1,2]:
-                if finalizar == 1:
-                    print('Adios!')
-                    quit()
-                elif finalizar == 2:
-                    return bienvenida()
-            else:
-                print("Por favor, ingrese las opciones 1 o 2")
-            return finalizacion()
-        except ValueError:
-            print("Por favor, ingrese las opciones 1 o 2")
-            return finalizacion()
-    
 
+    try:
+        finalizar = int(input('Por favor, ingrese las opciones 1 o 2: \n'))
+        if finalizar in [1,2] and finalizar ==1:
+            return finalizar
+        elif finalizar == 2:
+                return finalizar
+        else:
+            print("Por favor, ingrese las opciones 1 o 2")
+            
+    except ValueError:
+        print("Por favor, ingrese las opciones 1 o 2")
+        return finalizacion()
+    
 
 if __name__ == "__main__":
     bienvenida()
     perfil()
-    finalizacion()
+    while True:
+        try:
+            opcion_1 = int(input('Eliga una opcion:'))
+            if opcion_1 in [1, 2, 3, 4]:
+                if opcion_1 == 1:
+                    conocer_perfil()  # Funcion de preguntas de perfil
+
+                elif opcion_1 == 2:
+                    conocer_perfil()  # Funcion de preguntas de perfil
+
+                elif opcion_1 == 3:
+                    conocer_perfil()  # Funcion de preguntas de perfil
+
+                elif opcion_1 == 4:
+                    opciones_inversion()  # Opciones para invertir
+            else:
+                print("Por favor, vuelva a intentar e ingrese alguna de las opciones")
+                perfil()  
+        except:
+            print("Por favor, vuelva a intentar e ingrese alguna de las opciones")
+            perfil() 
+        salir = finalizacion()
+        if salir ==1:
+            print('Termino el programa, Adios!')
+            break
+        else:
+            bienvenida()
+            perfil()
